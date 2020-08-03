@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CircularBufferTest {
 
@@ -40,6 +41,9 @@ public class CircularBufferTest {
         cb.writeData("B");
         assertEquals("B", cb.readData());
     }
-
-
+       @Test
+       public void if_buffer_empty_data_read_should_be_null(){
+           CircularBuffer cb = new CircularBuffer();
+           assertNull("Don't have data in buffer", cb.readData());
+    }
 }
