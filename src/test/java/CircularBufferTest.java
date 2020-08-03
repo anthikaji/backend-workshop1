@@ -3,6 +3,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CircularBufferTest {
+
+
     @Test
     public  void create_new_buffer_should_empty(){
     CircularBuffer cb = new CircularBuffer();
@@ -19,11 +21,25 @@ public class CircularBufferTest {
     assertTrue("Buffer isn't full",result);
 }
 @Test
-    public  void  write_A_to_buffer_should_read_A(){
+    public  void  write_A_and_B_to_buffer_should_read_A_and_B(){
         CircularBuffer cb = new CircularBuffer();
         cb.writeData("A");
         cb.writeData("B");
         assertEquals("A",cb.readData());
         assertEquals("B",cb.readData());
 }
+    public  void write_AA_to_buffer_should_read_A(){
+
+    }
+    @Test
+    public void Overwrite_B_instead_A_in_first_index_if_data_full(){
+        CircularBuffer cb = new CircularBuffer();
+        for (int i=0; i<10 ; i++) {
+            cb.writeData("A"+i);
+        }
+        cb.writeData("B");
+        assertEquals("B", cb.readData());
+    }
+
+
 }
