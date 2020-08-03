@@ -4,7 +4,10 @@ public class HelloWorld {
     }
 
     public String sayHi(String name) {
-        return "Hello " + name.substring(0, 1).toUpperCase() + name.substring(1, name.length());
+        String firstLetter = name.substring(0,1).toUpperCase();
+        String remainLatters = name.substring(1);
+        return  "Hello " + firstLetter + remainLatters;
+//        return "Hello " + name.substring(0, 1).toUpperCase() + name.substring(1, name.length());
     }
 //    public static void main (String[] args){
 ////        System.out.println("HelloWorld");
