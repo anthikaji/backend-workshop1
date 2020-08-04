@@ -5,16 +5,14 @@ import static org.junit.Assert.assertEquals;
 
 public class CircularBufferTest {
 
-
+    CircularBuffer cb = new CircularBuffer();
     @Test
     public  void create_new_buffer_should_empty(){
-    CircularBuffer cb = new CircularBuffer();
     boolean result =cb.isEmpty();
     assertTrue("Buffer ไม่ว่างนะ",result);
 }
     @Test
     public void create_new_Buffer_with_default_size_should_10(){
-    CircularBuffer cb = new CircularBuffer();
     for (int i=0 ; i<10; i++) {
         cb.writeData("A" + i);
     }
@@ -23,7 +21,6 @@ public class CircularBufferTest {
 }
 @Test
     public  void  write_A_and_B_to_buffer_should_read_A_and_B(){
-        CircularBuffer cb = new CircularBuffer();
         cb.writeData("A");
         cb.writeData("B");
         assertEquals("A",cb.readData());
@@ -34,7 +31,6 @@ public class CircularBufferTest {
     }
     @Test
     public void Overwrite_B_instead_A_in_first_index_if_data_full(){
-        CircularBuffer cb = new CircularBuffer();
         for (int i=0; i<10 ; i++) {
             cb.writeData("A"+i);
         }
@@ -43,7 +39,6 @@ public class CircularBufferTest {
     }
        @Test
        public void if_buffer_empty_data_read_should_be_null(){
-           CircularBuffer cb = new CircularBuffer();
            assertNull("Don't have data in buffer", cb.readData());
     }
 }
